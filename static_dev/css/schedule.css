@@ -1,0 +1,221 @@
+/* Основные стили для тела страницы */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f4f8;
+    color: #333;
+}
+
+/* Стили для заголовка */
+header {
+    background: linear-gradient(90deg, #3e298a, #311f74);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    height: 75px;
+    display: flex;
+    align-items: center;
+}
+
+/* Контейнер для элементов заголовка */
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 20px;
+}
+
+/* Стили для списка навигации */
+.nav ul {
+    display: flex;
+    gap: 20px;
+}
+
+/* Убираем маркеры списка */
+.nav ul li {
+    list-style: none;
+}
+
+/* Стили для ссылок навигации */
+.nav a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+/* Цвет ссылки при наведении */
+.nav a:hover {
+    color: #ffcc00;
+}
+
+/* Стили для блока пользователя */
+.user {
+    display: flex;
+    align-items: center;
+}
+
+/* Стили для информации о пользователе */
+.user-info {
+    margin-right: 10px;
+    color: white;
+}
+
+/* Стили для иконки пользователя */
+.user-icon img {
+    width: 50px;
+    border-radius: 50%;
+}
+
+/* Основные стили для основного содержимого */
+main {
+    display: flex;
+    padding: 20px;
+}
+
+/* Стили для секции расписания */
+.schedule {
+    flex: 0 0 75%;
+    margin-right: 20px;
+}
+
+/* Заголовок расписания */
+.schedule-title {
+    font-size: 30px;
+    font-weight: bold;
+    color: #3e298a;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Контейнер для расписания */
+.schedule-container {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Стили для навигации расписания */
+.schedule-nav ul {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    list-style-type: none;
+    padding: 0;
+}
+
+/* Стили для ссылок навигации расписания */
+.schedule-nav a {
+    text-decoration: none;
+    color: #3e298a;
+    background-color: white;
+    border: 2px solid #3e298a;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Цвет кнопок при наведении */
+.schedule-nav a:hover {
+    background-color: #3e298a;
+    color: white;
+}
+
+/* Стили для таблицы расписания */
+table {
+    width: 100%; /* Таблица занимает всю ширину */
+    margin: 20px 0; 
+    border-collapse: collapse;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Стили для ячеек таблицы */
+th, td {
+    padding: 8px; /* Уменьшение отступов */
+    text-align: left;
+    border: 1px solid #ccc;
+    transition: background-color 0.3s;
+    vertical-align: middle; /* Выравнивание по вертикали */
+}
+
+/* Стили для заголовков таблицы */
+th {
+    background-color: #3e298a;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+/* Стили для первого столбца */
+.number-header {
+    width: 60px; /* Уменьшение ширины */
+    text-align: center;
+}
+
+/* Стили для ячеек с номерами пар */
+.number-cell {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    text-align: center;
+    vertical-align: middle;
+    font-size: 16px; /* Уменьшение размера шрифта */
+}
+
+
+/* Выравнивание текста в ячейках */
+td {
+    font-size: 14px; /* Уменьшение размера шрифта */
+    color: #333;
+}
+
+/* Стили для названия пары */
+td .pair-title {
+    font-size: 16px; /* Уменьшение размера шрифта */
+    font-weight: bold;
+    color: #4a60a4;
+}
+
+/* Стили для описания пары */
+td .pair-info {
+    font-size: 12px; /* Уменьшение размера шрифта */
+    color: #3f3f3f;
+    display: flex;
+    flex-direction: column; /* Использование flexbox для вертикального выравнивания */
+    justify-content: center; /* Выравнивание по центру */
+}
+
+/* Стили для строк таблицы */
+tbody tr {
+    transition: transform 0.2s;
+}
+
+/* Цвет фона строки при наведении */
+tbody tr:hover {
+    background-color: #e8f0fe;
+}
+
+/* Стили для блока истории */
+.history {
+    flex: 0 0 20%;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Стили для элементов истории */
+.history-item {
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+/* Заголовок элемента истории */
+.history-item h3 {
+    margin: 0 0 10px;
+    color: #3e298a;
+}

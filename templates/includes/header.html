@@ -1,0 +1,25 @@
+{% load static %}
+<header>
+  <div class="header-container">
+      <nav class="nav">
+          <ul>
+              <li><a href="schedule.html">Расписание</a></li>
+              <li><a href="teachers.html">Преподаватели</a></li>
+              <li><a href="subject.html" class="active">Предметы</a></li>
+          </ul>
+      </nav>
+      {% if user.is_authenticated %}
+      <a href="{% url 'users:lk' %}">
+          <div class="user">
+              <div class="user-info">
+                  <span class="user-name"> {{user.first_name}} {{user.last_name}}</span>
+                  <span class="user-role">{{user.get_role_display}}</span>
+              </div>
+              <div class="user-icon">
+                  <img src="https://avatars.mds.yandex.net/i?id=3c73c7e7d240eb0a4fb8d877774e267f57c07db9-4393175-images-thumbs&n=13" alt="User Icon" />
+              </div>
+          </div>
+      </a>
+      {% endif %}
+  </div>
+</header>

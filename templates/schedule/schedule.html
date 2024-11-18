@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% block title %}
+Расписание
+{% endblock %}
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="css/schedule.css">
+{% endblock %}
+{% block content %}
+        <section class="schedule">
+            <h2 class="schedule-title">Расписание</h2>
+            <div class="schedule-container">
+                <nav class="schedule-nav">
+                    <ul>
+                        <li><a href="#">Сегодня</a></li>
+                        <li><a href="#">Завтра</a></li>
+                        <li><a href="#">Эта неделя</a></li>
+                        <li><a href="#">Следующая неделя</a></li>
+                    </ul>
+                </nav>
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="number-header">Номер пары</th>
+                            <th>Название пары</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="number-cell">1<br>пара</td>
+                            <td>
+                                <div class="pair-title">Математика</div>
+                                <div class="pair-info">Преподаватель: Иванов И.И.<br>Аудитория: 101<br>Время: 9:00 - 10:30</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="number-cell">2<br>пара</td>
+                            <td>
+                                <div class="pair-title">Физика</div>
+                                <div class="pair-info">Преподаватель: Петров П.П.<br>Аудитория: 102<br>Время: 10:40 - 12:10</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="number-cell">3<br>пара</td>
+                            <td>
+                                <div class="pair-title">Химия</div>
+                                <div class="pair-info">Преподаватель: Сидоров С.С.<br>Аудитория: 103<br>Время: 12:20 - 13:50</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="number-cell">4<br>пара</td>
+                            <td>
+                                <div class="pair-title">История</div>
+                                <div class="pair-info">Преподаватель: Кузнецова А.А.<br>Аудитория: 104<br>Время: 14:00 - 15:30</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="number-cell">5<br>пара</td>
+                            <td>
+                                <div class="pair-title">Литература</div>
+                                <div class="pair-info">Преподаватель: Смирнова Н.Н.<br>Аудитория: 105<br>Время: 15:40 - 17:10</div>
+                            </td>
+                        </tr>
+                    </tbody>
+                    
+                </table>
+            </div>
+        </section>
+        
+        <aside class="history">
+            <h2>История</h2>
+            <div class="history-item">
+                <h3>Событие 1</h3>
+                <p>Описание события 1.</p>
+            </div>
+            <div class="history-item">
+                <h3>Событие 2</h3>
+                <p>Описание события 2.</p>
+            </div>
+            <div class="history-item">
+                <h3>Событие 3</h3>
+                <p>Описание события 3.</p>
+            </div>
+        </aside>
+{% endblock %}
