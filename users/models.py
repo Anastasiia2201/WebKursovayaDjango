@@ -15,6 +15,11 @@ class Group(models.Model):
         verbose_name = "Группа"
         verbose_name_plural = "Группы"
         ordering = ("id",)
+        constraints = [
+            models.UniqueConstraint(
+                fields=["name"], name="unique_group_name"
+            )
+        ]
 
 
 class Roles(models.TextChoices):
