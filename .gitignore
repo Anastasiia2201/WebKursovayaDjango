@@ -1,5 +1,6 @@
 .env
-
+db.sqlite3
+db copy.sqlite3
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
