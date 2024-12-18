@@ -101,7 +101,7 @@ def get_schedule(week_day, week):
 
 def schedule(request, type):
     """Расписание"""
-    #parse_schedule()
+    # заполнить БД - parse_schedule()
     lessons = {}
     template = 'schedule/schedule.html'
     today = datetime.datetime.now()

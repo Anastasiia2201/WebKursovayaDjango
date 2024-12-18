@@ -18,7 +18,7 @@
                         <li><a href="{% url 'schedule:show_schedule' type='next_week' %}">Следующая неделя</a></li>
                     </ul>
                 </nav>
-                {% if request.path != '/schedule/week' and  request.path != '/schedule/next_week'%}
+                {% if request.path != '/schedule/week/' and  request.path != '/schedule/next_week/'%}
                 <table>
                     <thead>
                         <tr>
