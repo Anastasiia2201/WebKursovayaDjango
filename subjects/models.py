@@ -8,11 +8,25 @@ class Subject(models.Model):
         max_length=CHAR_FIELD_MAX_LENGTH,
         verbose_name='Название')
 
+    type = models.CharField(
+        max_length=CHAR_FIELD_MAX_LENGTH,
+        verbose_name='Тип сдачи',
+        default='зачет')
+
+    course_work = models.CharField(
+        max_length=CHAR_FIELD_MAX_LENGTH,
+        verbose_name='Курсовая работа',
+        default='нет')
+
     class Meta:
         verbose_name = 'Предмет'
         verbose_name_plural = 'Предметы'
+        ordering = ("name",)
         constraints = [
             models.UniqueConstraint(
                 fields=["name"], name="unique_subject_name"
             )
         ]
+
+    def __str__(self):
+        return self.name

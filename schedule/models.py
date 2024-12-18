@@ -3,6 +3,7 @@ from django.utils.translation import gettext_lazy as _
 
 from users.models import Group
 from subjects.models import Subject
+from teachers.models import Teacher
 from basa_mtuci.constants import CHAR_FIELD_MAX_LENGTH
 
 
@@ -29,24 +30,6 @@ class Order(models.TextChoices):
     FIFTH = "5", _("5")
 
 
-class Teacher(models.Model):
-    first_name = models.CharField(
-        max_length=CHAR_FIELD_MAX_LENGTH,
-        verbose_name='Имя')
-    last_name = models.CharField(
-        max_length=CHAR_FIELD_MAX_LENGTH,
-        verbose_name='Фамилия')
-    patronimic = models.CharField(
-        max_length=CHAR_FIELD_MAX_LENGTH,
-        verbose_name='Отчество')
-    bio = models.TextField(
-        verbose_name='Текст')
-
-    class Meta:
-        verbose_name = 'Преподаватель'
-        verbose_name_plural = 'Преподаватели'
-
-
 class Schedule(models.Model):
     teacher = models.ForeignKey(Teacher,
         null=True,
@@ -57,6 +40,14 @@ class Schedule(models.Model):
         verbose_name="Тип заниятия",
         null=True,
         max_length=CHAR_FIELD_MAX_LENGTH
+    )
+    until_week = models.PositiveSmallIntegerField(
+        verbose_name="До какой недели",
+        default=17,
+    )
+    from_week = models.PositiveSmallIntegerField(
+        verbose_name="С какой недели",
+        default=1,
     )
     group = models.ForeignKey(Group,
         on_delete=models.CASCADE,

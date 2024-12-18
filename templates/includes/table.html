@@ -1,0 +1,17 @@
+{% load static %}
+
+    <tr>
+        <td class="number-cell">{{lesson.order}}<br>пара</td>
+        <td>
+            {%if lesson.subject%}
+            <div class="pair-title">{{lesson.subject}}({{lesson.type}})</div>
+            {%endif%}
+            <div class="pair-info">
+                {%if lesson.subject%}
+                Преподаватель: {{lesson.teacher}}
+                <br>Аудитория: {{lesson.classroom}}<br>
+                {%endif%}
+                Время: {{lesson.time}}
+            </div>
+        </td>
+    </tr>

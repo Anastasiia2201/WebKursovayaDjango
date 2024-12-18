@@ -21,6 +21,7 @@ AUTH_USER_MODEL = "users.User"
 
 INSTALLED_APPS = [
     'users.apps.UsersConfig',
+    'teachers.apps.TeachersConfig',
     'schedule.apps.ScheduleConfig',
     'subjects.apps.SubjectsConfig',
     'django.contrib.admin',

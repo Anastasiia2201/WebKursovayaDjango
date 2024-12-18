@@ -3,9 +3,9 @@
   <div class="header-container">
       <nav class="nav">
           <ul>
-              <li><a href="schedule.html">Расписание</a></li>
-              <li><a href="teachers.html">Преподаватели</a></li>
-              <li><a href="subject.html" class="active">Предметы</a></li>
+              <li><a href="{% url 'schedule:show_schedule' type='today' %}">Расписание</a></li>
+              <li><a href="{% url 'teachers:show_teachers' %}">Преподаватели</a></li>
+              <li><a href="{% url 'subjects:show_subjects' %}" class="active">Предметы</a></li>
           </ul>
       </nav>
       {% if user.is_authenticated %}

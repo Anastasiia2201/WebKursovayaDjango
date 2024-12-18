@@ -12,12 +12,13 @@
             <div class="schedule-container">
                 <nav class="schedule-nav">
                     <ul>
-                        <li><a href="#today">Сегодня</a></li>
-                        <li><a href="#tomorrow">Завтра</a></li>
-                        <li><a href="#">Эта неделя</a></li>
-                        <li><a href="#">Следующая неделя</a></li>
+                        <li><a href="{% url 'schedule:show_schedule' type='today' %}">Сегодня</a></li>
+                        <li><a href="{% url 'schedule:show_schedule' type='tomorrow' %}">Завтра</a></li>
+                        <li><a href="{% url 'schedule:show_schedule' type='week' %}">Эта неделя</a></li>
+                        <li><a href="{% url 'schedule:show_schedule' type='next_week' %}">Следующая неделя</a></li>
                     </ul>
                 </nav>
+                {% if request.path != '/schedule/week' and  request.path != '/schedule/next_week'%}
                 <table>
                     <thead>
                         <tr>
@@ -27,27 +28,60 @@
                     </thead>
                     <tbody>
                         {%for lesson in lessons%}
-                        <tr>
-                            <td class="number-cell">{{lesson.order}}<br>пара</td>
-                            <td>
-                                {%if lesson.subject and lesson.type != "зачет"%}
-                                <div class="pair-title">{{lesson.subject}}({{lesson.type}})</div>
-                                {%endif%}
-                                <div class="pair-info">
-                                    {%if lesson.subject and lesson.type != "зачет"%}
-                                    Преподаватель: {{lesson.teacher}}
-                                    <br>Аудитория: {{lesson.classroom}}<br>
-                                    {%endif%}
-                                    Время: {{lesson.time}}
-                                </div>
-                            </td>
-                        </tr>
+                        {% include "includes/table.html" %}
                         {% endfor %}
-
-
                     </tbody>
-                    
                 </table>
+                {% else %}
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="number-header">День недели</th>
+                            <th class="number-header">Номер пары</th>
+                            <th>Название пары</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td rowspan="6">Понедельник   
+                        </td>
+                        {%for lesson in lessons.0%}
+                        {% include "includes/table.html" %}
+                        {% endfor %}
+                    </tr>
+                    <tr><td rowspan="6">Вторник   
+                    </td>
+                    {%for lesson in lessons.1%}
+                    {% include "includes/table.html" %}
+                    {% endfor %}
+                </tr>
+                    <tr><td rowspan="6">Среда   
+                    </td>
+                    {%for lesson in lessons.2%}
+                    {% include "includes/table.html" %}
+                    {% endfor %}
+                </tr>          
+                <tr><td rowspan="6">Четверг   
+                </td>
+                {%for lesson in lessons.3%}
+                {% include "includes/table.html" %}
+                {% endfor %}
+            </tr>
+            <tr><td rowspan="6">Пятница   
+            </td>
+            {%for lesson in lessons.4%}
+            {% include "includes/table.html" %}
+            {% endfor %}
+        </tr>          
+        <tr><td rowspan="6">Суббота   
+        </td>
+        {%for lesson in lessons.5%}
+        {% include "includes/table.html" %}
+        {% endfor %}
+    </tr>          
+                        </tbody>
+                </table>    
+                {% endif %}
+
             </div>
         </section>
         
