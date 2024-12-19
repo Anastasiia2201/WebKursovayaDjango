@@ -5,7 +5,7 @@ from django.contrib.auth import authenticate, login
 
 from  subjects.models import Subject
 
-
+@login_required
 def subjects(request):
     """Отображает страницу пользователя."""
     template = 'subjects/subjects.html'

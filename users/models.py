@@ -2,7 +2,8 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.utils.translation import gettext_lazy as _
 
-AVATAR_DIR = 'users/'
+AVATAR_DIR = 'img/users/avatars/'
+CHECK_DIR = 'img/users/check/'
 CHAR_FIELD_MAX_LENGTH = 256
 
 
@@ -21,6 +22,8 @@ class Group(models.Model):
             )
         ]
 
+    def __str__(self):
+        return self.name
 
 class Roles(models.TextChoices):
     USER = "user", _("Студент")
@@ -29,7 +32,7 @@ class Roles(models.TextChoices):
 
 class User(AbstractUser):
     avatar = models.ImageField(
-        upload_to=AVATAR_DIR, verbose_name="Аватар", null=True, blank=True
+        upload_to=AVATAR_DIR, default="img/teachers/no_content.jpg", verbose_name="Аватар", blank=True
     )
     role = models.CharField(
         verbose_name="Роль",
@@ -37,15 +40,29 @@ class User(AbstractUser):
         default=Roles.USER,
         max_length=CHAR_FIELD_MAX_LENGTH
     )
+    photo_check = models.ImageField(
+        upload_to=CHECK_DIR, verbose_name="Фото для проверки", null=True, blank=False
+    )
     patronimic = models.CharField(
         verbose_name="Отчество",
         max_length=CHAR_FIELD_MAX_LENGTH,
     )
-    year = models.SmallIntegerField(
+    year = models.PositiveSmallIntegerField(
         verbose_name="Курс",
         default=1
     )
-    group = models.ForeignKey(Group, null=True, on_delete=models.SET_NULL, related_name="users")
+    email = models.EmailField(
+        unique=True,
+        blank=False,
+        null=True,
+        max_length=CHAR_FIELD_MAX_LENGTH,
+        verbose_name="Почта",
+    )
+    registered = models.BooleanField(
+        default=False,
+        verbose_name="Зарегистрирован",
+    )
+    group = models.ForeignKey(Group, null=True, on_delete=models.SET_NULL, related_name="users", verbose_name="Группа",)
 
     class Meta:
         verbose_name = "Пользователь"

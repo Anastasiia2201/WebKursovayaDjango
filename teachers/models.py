@@ -16,7 +16,7 @@ class Teacher(models.Model):
     bio = models.TextField(
         verbose_name='Текст')
     image = models.ImageField('Фото', default="img/teachers/no_content.jpg", upload_to='img/teachers')
-    experience = models.SmallIntegerField(default=1)
+    experience = models.SmallIntegerField(default=1, verbose_name='Опыт')
 
     class Meta:
         verbose_name = 'Преподаватель'
@@ -32,3 +32,10 @@ class TeacherSubject(models.Model):
     subject = models.ForeignKey(
         Subject, on_delete=models.CASCADE
     )
+    
+    class Meta:
+        verbose_name = 'Преподаватель предмета'
+        verbose_name_plural = 'Преподаватели предмета'
+
+    def __str__(self):
+        return str(self.id)

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+Войти
+{% endblock %}
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/lk.css' %}">
+{% endblock %}
+{% block content %}
+  <div class="container">
+    <div class="profile-actions">
+      Введите код подтверждения
+    </div>
+    <div class="card-body">
+      <form method="post" enctype="multipart/form-data" >
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Отправить">
+      </form>
+    </div>
+  </div>
+  {{ error }}
+{% endblock %}

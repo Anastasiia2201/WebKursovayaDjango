@@ -5,7 +5,7 @@ from django.contrib.auth import authenticate, login
 
 from  .models import Teacher
 
-
+@login_required
 def teachers(request):
     """Отображает страницу пользователя."""
     template = 'teachers/teachers.html'

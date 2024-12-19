@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+Войти
+{% endblock %}
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/lk.css' %}">
+{% endblock %}
+{% block content %}
+  <div class="container">
+    <div class="profile-actions">
+        Вход в личный кабинет
+    </div>
+    <div class="card-body">
+      <form method="post" enctype="multipart/form-data" >
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Войти">
+      </form>
+    </div>
+  </div>
+  {{ error }}
+  <a href="{% url 'users:registration' %}" type="button"> Регистрация </a>
+{% endblock %}

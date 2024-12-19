@@ -6,20 +6,23 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.conf import settings
 from django.shortcuts import render, get_object_or_404
-
+from django.contrib.auth.decorators import login_required
 
 from subjects.models import Subject
-from .models import Schedule, Group, Teacher
+from .models import Schedule, Group
+from teachers.models import Teacher, TeacherSubject
 from basa_mtuci.constants import WEEK, TIME
 
 file_path='pdf/BFI2202.pdf'
+
 
 def create_schedule(group, order, week_type, week_day, subject, classroom, teacher, type, until_week, from_week):
     if subject:
         subject, _ = Subject.objects.get_or_create(name=subject)
         teacher, _ = Teacher.objects.get_or_create(last_name=teacher)
+        TeacherSubject.objects.get_or_create(subject=subject, teacher=teacher)
         schedule, _ = Schedule.objects.get_or_create(group=group, order=order, classroom=classroom,
-                                                week_day=week_day, week_type=week_type, teacher=teacher,
+                                                week_day=week_day, week_type=week_type,
                                                 type=type, until_week=until_week, from_week=from_week)
         schedule.subject = subject
         schedule.save()
@@ -87,7 +90,7 @@ def get_schedule(week_day, week):
             lessons.append({
                 'order': i,
                 'time': TIME[i-1],
-                'teacher': lesson.teacher.last_name,
+                'teacher': TeacherSubject.objects.filter(subject=lesson.subject.id).first().teacher.last_name,
                 'classroom': lesson.classroom,
                 'type': lesson.type,
                 'subject': lesson.subject.name})
@@ -99,14 +102,14 @@ def get_schedule(week_day, week):
     return lessons
 
 
-def schedule(request, type):
+@login_required
+def schedule(request, type=None):
     """Расписание"""
-    # заполнить БД - parse_schedule()
     lessons = {}
     template = 'schedule/schedule.html'
     today = datetime.datetime.now()
     week = today.isocalendar()[1] - datetime.date(2024, 9, 1).isocalendar()[1]
-    if type == 'today':
+    if type == 'today' or not type:
         lessons = get_schedule(today.weekday(), week)
     if type == 'tomorrow':
         lessons = get_schedule((today + datetime.timedelta(days=1)).weekday(), week)

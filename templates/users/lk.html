@@ -7,70 +7,71 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/lk.css' %}">
 {% endblock %}
 {% block content %}
-<body>
-        <div class="container">
-            <aside class="sidebar">
-                <h2>Личный кабинет</h2>
-                <div class="profile-actions">
-                    <div class="action">
-                        <img src="notification-icon.png" alt="Уведомления" />
-                        <span>Уведомления</span>
-                    </div>
-                    <div class="action">
-                        <img src="edit-icon.png" alt="Редактировать" />
-                        <span>Редактировать информацию</span>
-                    </div>
-                    <div class="action">
-                        <img src="{% static 'img/mtusi-icon.png'%}" alt="МТУСИ" />
-                        <span><a href="https://lk.mtuci.ru/student" target="_blank">Личный кабинет МТУСИ</a></span>
-                    </div>
-                </div>
 
-                <h3>Подписанные группы</h3>
-                <input type="text" placeholder="Найти группу" class="group-search">
-                <ul class="group-list">
-                    <li class="group-item">Группа 1: Основы программирования</li>
-                    <li class="group-item">Группа 2: Алгоритмы и структуры данных</li>
-                    <li class="group-item">Группа 3: Веб-разработка</li>
-                </ul>
-                <button class="create-group">Создать группу</button>
-            </aside>
-
-            <section class="profile">
-                <h2>Информация о студенте</h2>
-                <div class="profile-info">
-                    <p><strong>ФИО:</strong> {{user.first_name}} {{user.last_name}}</p>
-                    <p><strong>Группа:</strong>{{user.group}}</p>
-                    <p><strong>Курс:</strong>{{user.year}}</p>
-                </div>
-
-                <div class="file-section">
-                    <h3>Вложенные файлы</h3>
-                    <button class="toggle-files">Показать файлы</button>
-                    <ul class="file-list hidden">
-                        <li><a href="#">Задание по математике.docx</a></li>
-                        <li><a href="#">Конспект лекции по физике.pdf</a></li>
-                        <li><a href="#">Проект по информатике.pptx</a></li>
-                    </ul>
-                    <button class="add-file">Добавить файл</button>
-                </div>
-
-                <div class="history-section">
-                    <h3>История изменений</h3>
-                    <div class="history-item">
-                        <h4>Изменение 1</h4>
-                        <p>Добавлено задание по математике.</p>
-                    </div>
-                    <div class="history-item">
-                        <h4>Изменение 2</h4>
-                        <p>Обновлён конспект лекции по физике.</p>
-                    </div>
-                    <div class="history-item">
-                        <h4>Изменение 3</h4>
-                        <p>Загружен проект по информатике.</p>
-                    </div>
-                </div>
-            </section>
+<div class="container">
+    <aside class="sidebar">
+        <h2>Личный кабинет</h2>
+        <div class="profile-actions">
+            <div class="action">
+                <img src="notification-icon.png" alt="Уведомления" />
+                <span>Уведомления</span>
+            </div>
+            <div class="action">
+                <img src="edit-icon.png" alt="Редактировать" />
+                <span>Редактировать информацию</span>
+            </div>
+            <div class="action">
+                <img src="{% static 'img/mtusi-icon.png'%}" alt="МТУСИ" />
+                <span><a href="https://lk.mtuci.ru/student" target="_blank">Личный кабинет МТУСИ</a></span>
+            </div>
         </div>
+
+     <!--   <h3>Подписанные группы</h3>
+        <input type="text" placeholder="Найти группу" class="group-search">
+        <ul class="group-list">
+            <li class="group-item">Группа 1: Основы программирования</li>
+            <li class="group-item">Группа 2: Алгоритмы и структуры данных</li>
+            <li class="group-item">Группа 3: Веб-разработка</li>
+        </ul>-->
+        <button onclick="location.href='{% url "users:user_update" %}'" class="create-group">Редактировать информацию</button>
+        <button onclick="location.href='{% url "users:user_logout" %}'" class="create-group">Выход</button>
+    </aside>
+
+    <section class="profile">
+        <h2>Информация о студенте</h2>
+        <div class="profile-info">
+            <p><strong>ФИО:</strong> {{user.first_name}} {{user.last_name}}</p>
+            <p><strong>Группа:</strong>{{user.group}}</p>
+            <p><strong>Курс:</strong>{{user.year}}</p>
+        </div>
+
+        <div class="file-section">
+            <h3>Вложенные файлы</h3>
+            <button class="toggle-files">Показать файлы</button>
+            <ul class="file-list hidden">
+                <li><a href="#">Задание по математике.docx</a></li>
+                <li><a href="#">Конспект лекции по физике.pdf</a></li>
+                <li><a href="#">Проект по информатике.pptx</a></li>
+            </ul>
+            <button class="add-file">Добавить файл</button>
+        </div>
+
+   <!--      <div class="history-section">
+            <h3>История изменений</h3>
+            <div class="history-item">
+                <h4>Изменение 1</h4>
+                <p>Добавлено задание по математике.</p>
+            </div>
+            <div class="history-item">
+                <h4>Изменение 2</h4>
+                <p>Обновлён конспект лекции по физике.</p>
+            </div>
+            <div class="history-item">
+                <h4>Изменение 3</h4>
+                <p>Загружен проект по информатике.</p>
+            </div>
+        </div> -->
+    </section>
+</div>
 {% endblock %}
 

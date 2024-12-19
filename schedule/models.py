@@ -31,11 +31,6 @@ class Order(models.TextChoices):
 
 
 class Schedule(models.Model):
-    teacher = models.ForeignKey(Teacher,
-        null=True,
-        on_delete=models.SET_NULL,
-        related_name='schedules'
-        )
     type = models.CharField(
         verbose_name="Тип заниятия",
         null=True,
