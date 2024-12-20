@@ -1,10 +1,8 @@
-{% extends "base.html" %}
 {% load static %}
 {% block title %}
-Войти
 {% endblock %}
 {% block css %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/lk.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
 {% endblock %}
 {% block content %}
   <div class="container">
@@ -19,6 +17,12 @@
       </form>
     </div>
   </div>
-  {{ error }}
-  <a href="{% url 'users:registration' %}" type="button"> Регистрация </a>
+
+  {% if error %}
+    <div class="error">{{ error }}</div>
+  {% endif %}
+
+  <div class="registration-btn-container">
+      <a href="{% url 'users:registration' %}" class="btn-registration">Регистрация</a>
+  </div>
 {% endblock %}

@@ -1,0 +1,181 @@
+/* Стили для header */
+header {
+    background: linear-gradient(90deg, #3e298a, #311f74);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+    height: 80px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    color: white; /* Убедимся, что весь текст внутри header белый */
+}
+
+/* Стиль для заголовков внутри header */
+header h1, header .nav a, header .user-info {
+    color: white !important; /* Принудительно делаем текст белым */
+}
+
+/* Стили для выбора курса */
+form select {
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    transition: border-color 0.3s;
+    cursor: pointer;
+}
+
+form select:focus {
+    border-color: #3e298a;
+    outline: none;
+}
+
+/* Стили для кнопки отправки */
+form input[type="submit"] {
+    background-color: #3e298a;
+    color: white;
+    font-size: 16px;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    align-self: center;
+    margin-top: 15px; /* Отступ сверху для отделения от других элементов */
+}
+
+form input[type="submit"]:hover {
+    background-color: #2a1b64;
+}
+
+/* Дополнительные стили для разделения кнопок */
+.form-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Добавляем промежуток между кнопками */
+}
+
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.nav ul {
+    display: flex;
+    gap: 25px;
+}
+
+.nav ul li {
+    list-style: none;
+}
+
+.nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease-in-out;
+}
+
+.nav a:hover,
+.nav a.active {
+    color: #ffcc00;
+}
+
+/* Иконка пользователя */
+.user {
+    display: flex;
+    align-items: center;
+}
+
+.user-info {
+    margin-right: 12px;
+}
+
+.user-icon img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Общие стили */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7fc;
+    color: #333;
+}
+
+/* Контейнер для страницы */
+.container {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 40px;
+}
+
+/* Заголовок для страницы */
+.profile-actions {
+    font-size: 26px;
+    font-weight: bold;
+    color: #3e298a;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+/* Карточка с формой */
+.card-body {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Формы */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"],
+form input[type="file"],
+form select {
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    transition: border-color 0.3s;
+}
+
+form input[type="text"]:focus,
+form input[type="email"]:focus,
+form input[type="password"]:focus,
+form select:focus {
+    border-color: #3e298a;
+    outline: none;
+}
+
+/* Кнопка отправки */
+form input[type="submit"] {
+    background-color: #3e298a;
+    color: white;
+    font-size: 16px;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    align-self: center;
+}
+
+form input[type="submit"]:hover {
+    background-color: #2a1b64;
+}

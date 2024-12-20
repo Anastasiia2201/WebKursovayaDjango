@@ -1,11 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Загрузка файла</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Загрузка файла для {{ subject.name }} ({{ category|capfirst }})
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/file_upload.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="file-upload-section">
     <h1>Добавить файл для {{ subject.name }} ({{ category|capfirst }})</h1>
 
     <form method="post" enctype="multipart/form-data">
@@ -16,5 +22,5 @@
 
     <br>
     <a href="{% url 'subjects:file_list' subject.id category %}" class="btn">Назад к файлам</a>
-</body>
-</html>
+</section>
+{% endblock %}

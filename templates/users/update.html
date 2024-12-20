@@ -4,7 +4,7 @@
 Изменить
 {% endblock %}
 {% block css %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/lk.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/update.css' %}">
 {% endblock %}
 {% block content %}
   <div class="container">
@@ -12,7 +12,7 @@
       Изменить пользователя
     </div>
     <div class="card-body">
-      <form method="post" enctype="multipart/form-data" >
+      <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form }}
         <input type="submit" value="Отправить">

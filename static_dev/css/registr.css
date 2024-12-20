@@ -1,0 +1,147 @@
+/* Стили для формы регистрации */
+form select {
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    transition: border-color 0.3s;
+    cursor: pointer;
+}
+
+form select:focus {
+    border-color: #3e298a;
+    outline: none;
+}
+
+/* Стили для кнопки отправки */
+form input[type="submit"] {
+    background-color: #3e298a;
+    color: white;
+    font-size: 16px;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    align-self: center;
+    margin-top: 15px;
+}
+
+form input[type="submit"]:hover {
+    background-color: #2a1b64;
+}
+
+/* Дополнительные стили для разделения кнопок */
+.form-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Добавление промежутка между кнопками */
+}
+
+/* Общие стили */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7fc;
+    color: #333;
+    line-height: 1.6; /* Улучшенный межстрочный интервал */
+}
+
+/* Контейнер для страницы */
+.container {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 40px;
+}
+
+/* Заголовок страницы */
+.profile-actions {
+    font-size: 28px;
+    font-weight: bold;
+    color: #3e298a;
+    margin-bottom: 25px;
+    text-align: center;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Легкая тень для текста */
+}
+
+/* Карточка с формой */
+.card-body {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Формы */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"],
+form select {
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    transition: border-color 0.3s;
+}
+
+form input[type="text"]:focus,
+form input[type="email"]:focus,
+form input[type="password"]:focus,
+form select:focus {
+    border-color: #3e298a;
+    outline: none;
+}
+
+/* Кнопка отправки */
+form input[type="submit"] {
+    background-color: #3e298a;
+    color: white;
+    font-size: 16px;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    align-self: center;
+}
+
+form input[type="submit"]:hover {
+    background-color: #2a1b64;
+}
+
+
+/* Контейнер для кнопки "Войти" */
+.login-btn-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px; /* Отступ сверху */
+}
+
+/* Кнопка "Войти" */
+.btn-login {
+    padding: 12px 25px;
+    font-size: 16px;
+    background-color: #f4f7fc; /* Светлый фон */
+    color: #3e298a; /* Цвет текста */
+    text-decoration: none;
+    border: 2px solid #3e298a; /* Рамка такого же цвета */
+    border-radius: 8px;
+    text-align: center;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.btn-login:hover {
+    background-color: #3e298a; /* Темный фон при наведении */
+    color: white; /* Белый цвет текста при наведении */
+}
