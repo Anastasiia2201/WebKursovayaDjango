@@ -1,69 +1,114 @@
-/* Общие стили */
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f0f4f8;
-    color: #333;
+/* Стили для кнопок лайк/дизлайк */
+.reaction-buttons {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
 }
 
-/* Секция категорий файлов */
-.file-categories-section {
-    margin: 20px auto;
+.like-btn, .dislike-btn {
+    background-color: #f0f4f8;
+    border: 1px solid #ddd;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s;
+}
+
+.like-btn:hover, .dislike-btn:hover {
+    background-color: #d1e7ff;
+}
+
+.like-btn span, .dislike-btn span {
+    margin-right: 5px;
+}
+
+.like-btn {
+    color: #28a745; /* Зеленый для лайка */
+}
+
+.dislike-btn {
+    color: #dc3545; /* Красный для дизлайка */
+}
+
+
+/* Стили для чата и сообщений */
+.subject-messages {
+    margin-top: 40px;
+    background-color: #f9f9f9;
     padding: 20px;
-    background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    width: 90%;
-    max-width: 1200px;
 }
 
-/* Заголовок категорий файлов */
-.file-categories-title {
-    font-size: 28px;
+.messages-title {
+    font-size: 24px;
     color: #3e298a;
-    text-align: center;
     margin-bottom: 20px;
+    text-align: center;
 }
 
-/* Список категорий файлов */
-.category-list {
-    list-style: none;
+.message-list {
+    margin: 0;
     padding: 0;
+    list-style: none;
 }
 
-.category-list li {
+.message-item {
+    background-color: #fff;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.message-header {
+    font-weight: bold;
+    font-size: 16px;
     margin-bottom: 10px;
 }
 
-.category-link {
-    font-size: 18px;
-    color: #3e298a;
-    text-decoration: none;
-    transition: color 0.3s;
+.message-text {
+    font-size: 14px;
+    color: #555;
 }
 
-.category-link:hover {
-    color: #ffcc00;
+/* Форма для отправки сообщений */
+.message-form {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-/* Кнопка назад */
-.btn-back {
-    display: block;
-    margin: 20px auto;
-    text-align: center;
-    width: 200px;
+textarea {
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    resize: none;
+    font-size: 14px;
+}
+
+.btn-send {
+    width: 120px;
     background-color: #3e298a;
     color: white;
     padding: 10px;
     border-radius: 5px;
-    text-decoration: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
     transition: background-color 0.3s;
 }
 
-.btn-back:hover {
+.btn-send:hover {
     background-color: #2a1b64;
 }
+
 
 /* Стили для header */
 header {
@@ -114,4 +159,129 @@ header {
 .user-icon img {
     width: 50px;
     border-radius: 50%;
+}
+
+/* Общие стили */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f4f8;
+    color: #333;
+}
+
+/* Секция категорий файлов */
+.file-categories-section {
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 1200px;
+}
+
+/* Заголовок категорий файлов */
+.file-categories-title {
+    font-size: 28px;
+    color: #3e298a;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Список категорий файлов */
+.category-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Элемент списка категорий */
+.category-item {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+/* Ссылки категорий */
+.category-link {
+    font-size: 18px;
+    color: #3e298a;
+    text-decoration: none;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    transition: color 0.3s, background-color 0.3s;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.category-link:hover {
+    color: #fff;
+    background-color: #3e298a; /* Цвет фона при наведении */
+}
+
+/* Иконка категории */
+.category-icon {
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+/* Кнопка назад */
+.btn-back {
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    width: 200px;
+    background-color: #3e298a;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.btn-back:hover {
+    background-color: #2a1b64;
+}
+
+/* Блок с сообщениями */
+.subject-messages {
+    margin-top: 40px;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.messages-title {
+    font-size: 24px;
+    color: #3e298a;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.message-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.message-item {
+    background-color: #fff;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.message-header {
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.message-text {
+    font-size: 14px;
+    color: #555;
 }

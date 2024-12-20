@@ -14,11 +14,99 @@
     <h2 class="file-categories-title">Категории файлов для {{ subject.name }}</h2>
     <ul class="category-list">
         {% for category in categories %}
-        <li>
-            <a href="{% url 'subjects:file_list' subject.id category %}" class="category-link">{{ category|capfirst }}</a>
+        <li class="category-item">
+            <a href="{% url 'subjects:file_list' subject.id category %}" class="category-link">
+                <span class="category-icon">&#x1F4C2;</span>  <!-- Иконка документа -->
+                {{ category|capfirst }}
+            </a>
         </li>
         {% endfor %}
     </ul>
     <a href="/subjects/" class="btn-back">Перейти на страницу предметов</a>
 </section>
+
+<!-- Блок с сообщениями (чат) -->
+<section class="subject-messages">
+    <h3 class="messages-title">Обсуждения и обновления</h3>
+    <div class="message-list">
+        <!-- Пример сообщения 1 -->
+        <div class="message-item">
+            <p class="message-header">
+                <strong>Василий Карзанов</strong> оставил сообщение в 12:45 12.10.2024
+            </p>
+            <p class="message-text">Сроки сдачи курсвой работы передвинули! Пожалуйста, ознакомьтесь с новым расписанием.</p>
+
+            <!-- Кнопки лайк/дизлайк -->
+            <div class="reaction-buttons">
+                <button class="like-btn">
+                    <span>&#128077;</span> Лайк <span class="like-count"><span></span>24</span>
+                </button>
+                <button class="dislike-btn">
+                    <span>&#128078;</span> Дизлайк <span class="dislike-count"><span></span>2</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Пример сообщения 2 -->
+        <div class="message-item">
+            <p class="message-header">
+                <strong>Сахарова Анастасия</strong> оставила сообщение в 14:30 12.10.2024
+            </p>
+            <p class="message-text">Задание с видеоуроком будет доступно на следующей неделе.</p>
+
+            <!-- Кнопки лайк/дизлайк -->
+            <div class="reaction-buttons">
+                <button class="like-btn">
+                    <span>&#128077;</span> Лайк <span class="like-count"><span></span>12</span>
+                </button>
+                <button class="dislike-btn">
+                    <span>&#128078;</span> Дизлайк <span class="dislike-count"><span></span>4</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Пример сообщения 3 -->
+        <div class="message-item">
+            <p class="message-header">
+                <strong>Охримчук Павел</strong> оставил сообщение в 09:00 13.10.2024
+            </p>
+            <p class="message-text">Завтра футбол в 18:00</p>
+
+            <!-- Кнопки лайк/дизлайк -->
+            <div class="reaction-buttons">
+                <button class="like-btn">
+                    <span>&#128077;</span> Лайк <span class="like-count"><span></span>3</span>
+                </button>
+                <button class="dislike-btn">
+                    <span>&#128078;</span> Дизлайк <span class="dislike-count"><span></span>23</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Пример сообщения 4 -->
+        <div class="message-item">
+            <p class="message-header">
+                <strong>Магомед Керимов</strong> оставил сообщение в 18:15 13.10.2024
+            </p>
+            <p class="message-text">Она сказала, что скинет 4 лабу в Четверг</p>
+
+            <!-- Кнопки лайк/дизлайк -->
+            <div class="reaction-buttons">
+                <button class="like-btn">
+                    <span>&#128077;</span> Лайк <span class="like-count"><span> </span>15</span>
+                </button>
+                <button class="dislike-btn">
+                    <span>&#128078;</span> Дизлайк <span class="dislike-count"><span> </span>1</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Форма для отправки нового сообщения -->
+    <div class="message-form">
+        <textarea id="newMessage" placeholder="Напишите ваше сообщение..." rows="4"></textarea>
+        <button id="sendMessageBtn" class="btn-send">Отправить</button>
+    </div>
+</section>
+
 {% endblock %}

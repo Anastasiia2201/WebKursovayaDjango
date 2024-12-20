@@ -16,7 +16,7 @@ def subjects(request):
 
 def file_categories(request, subject_id):
     subject = get_object_or_404(Subject, id=subject_id)
-    categories = ['lectures', 'practicals', 'labs', 'coursework', 'exam']
+    categories = ['Лекционные занятия', 'Практические занятия', 'Лабораторные работые', 'Курсовая работа', 'Сессия']
     return render(request, 'subjects/file_categories.html', {'subject': subject, 'categories': categories})
 
 
