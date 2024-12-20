@@ -42,6 +42,7 @@
             <li>
                 <a href="{{ file.file.url }}" target="_blank" class="file-link">{{ file.file.name }}</a>
                 <span class="file-uploaded-date">(Загружено: {{ file.uploaded_at|date:"d.m.Y H:i" }})</span>
+                <span>Автор: {{ request.user.username }}</span>
             </li>
             {% endfor %}
         </ul>
