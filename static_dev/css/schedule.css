@@ -73,7 +73,7 @@ main {
 
 /* Стили для секции расписания */
 .schedule {
-    flex: 0 0 75%;
+    flex: 0 0 72%;
     margin-right: 20px;
 }
 
@@ -123,7 +123,7 @@ main {
 /* Стили для таблицы расписания */
 table {
     width: 100%; /* Таблица занимает всю ширину */
-    margin: 20px 0; 
+    margin: 20px 0;
     border-collapse: collapse;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
@@ -197,12 +197,19 @@ tbody tr:hover {
 }
 
 /* Стили для блока истории */
+/* Стили для блока истории */
 .history {
-    flex: 0 0 20%;
+    margin-top:85px;
+    flex: 0 0 24%; /* Увеличиваем ширину блока истории */
     background-color: #fff;
     border-radius: 8px;
     padding: 20px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    height: 500px; /* Позволяет высоте адаптироваться в зависимости от контента */
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 /* Стили для элементов истории */
@@ -212,10 +219,37 @@ tbody tr:hover {
     border-radius: 5px;
     padding: 10px;
     margin-bottom: 15px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+/* Эффект при наведении на элемент истории */
+.history-item:hover {
+    background-color: #e1e1e1;
+    transform: translateX(10px); /* Легкое смещение при наведении */
 }
 
 /* Заголовок элемента истории */
 .history-item h3 {
     margin: 0 0 10px;
     color: #3e298a;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* Описание события */
+.history-item p {
+    color: #333;
+    font-size: 14px;
+}
+
+/* Ссылка в описании */
+.history-item a {
+    color: #3e298a;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+/* Цвет ссылки при наведении */
+.history-item a:hover {
+    color: #ffcc00;
 }

@@ -42,62 +42,63 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr><td rowspan="6">Понедельник   
-                        </td>
+                        <tr><td rowspan="6">Понедельник</td>
                         {%for lesson in lessons.0%}
                         {% include "includes/table.html" %}
                         {% endfor %}
                     </tr>
-                    <tr><td rowspan="6">Вторник   
-                    </td>
+                    <tr><td rowspan="6">Вторник</td>
                     {%for lesson in lessons.1%}
                     {% include "includes/table.html" %}
                     {% endfor %}
                 </tr>
-                    <tr><td rowspan="6">Среда   
-                    </td>
+                    <tr><td rowspan="6">Среда</td>
                     {%for lesson in lessons.2%}
                     {% include "includes/table.html" %}
                     {% endfor %}
-                </tr>          
-                <tr><td rowspan="6">Четверг   
-                </td>
+                </tr>
+                <tr><td rowspan="6">Четверг</td>
                 {%for lesson in lessons.3%}
                 {% include "includes/table.html" %}
                 {% endfor %}
             </tr>
-            <tr><td rowspan="6">Пятница   
-            </td>
+            <tr><td rowspan="6">Пятница</td>
             {%for lesson in lessons.4%}
             {% include "includes/table.html" %}
             {% endfor %}
-        </tr>          
-        <tr><td rowspan="6">Суббота   
-        </td>
+        </tr>
+        <tr><td rowspan="6">Суббота</td>
         {%for lesson in lessons.5%}
         {% include "includes/table.html" %}
         {% endfor %}
-    </tr>          
+    </tr>
                         </tbody>
-                </table>    
+                </table>
                 {% endif %}
-
             </div>
         </section>
-        
+
         <aside class="history">
-            <h2>История</h2>
+            <h2>История событий</h2>
             <div class="history-item">
-                <h3>Событие 1</h3>
-                <p>Описание события 1.</p>
+                <h3>Саня Лозицкий: БФИ2202</h3>
+                <p>Добавил файл с инфомарцией о зачётах. <a href="#">Перейти</a></p>
             </div>
             <div class="history-item">
-                <h3>Событие 2</h3>
-                <p>Описание события 2.</p>
+                <h3>МТУСИ</h3>
+                <p>Новое расписание звонков с 19.09.2024. <a href="#">Скачать</a></p>
             </div>
             <div class="history-item">
-                <h3>Событие 3</h3>
-                <p>Описание события 3.</p>
+                <h3>Саня Лозицкий: БФИ2202</h3>
+                <p>Добавил описание Курсовой работы по ОС <a href="#">Перейти</a></p>
+            </div>
+            <div class="history-item new-block">
+                <h3>Данечка Сидорук: БФИ2202</h3>
+                <p>Добавил конспект Лекции№7 по предмету Системное программирование </p>
+            </div>
+            <div class="history-item new-block">
+                <h3>Староста БФИ2202</h3>
+                <p>Практика 12.08.2024 была перенесена на дистант <a href="#">Подробнее...</a></p>
             </div>
         </aside>
 {% endblock %}

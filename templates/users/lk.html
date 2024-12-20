@@ -11,38 +11,45 @@
 <div class="container">
     <aside class="sidebar">
         <h2>Личный кабинет</h2>
-        <div class="profile-actions">
-            <div class="action">
-                <img src="notification-icon.png" alt="Уведомления" />
-                <span>Уведомления</span>
-            </div>
-            <div class="action">
-                <img src="edit-icon.png" alt="Редактировать" />
-                <span>Редактировать информацию</span>
-            </div>
-            <div class="action">
-                <img src="{% static 'img/mtusi-icon.png'%}" alt="МТУСИ" />
-                <span><a href="https://lk.mtuci.ru/student" target="_blank">Личный кабинет МТУСИ</a></span>
-            </div>
-        </div>
 
-     <!--   <h3>Подписанные группы</h3>
+        <aside class="action-block">
+            <ul class="profile-actions">
+                <li class="action">
+                    <a href="" target="_blank">
+                        Уведомления
+                    </a>
+                </li>
+                <li class="action">
+                    <a href="" target="_blank">
+                        Редактировать информацию
+                    </a>
+                </li>
+                <li class="action">
+                    <a href="https://lk.mtuci.ru/student" target="_blank">
+                        Личный кабинет МТУСИ
+                    </a>
+                </li>
+            </ul>
+        </aside>
+
+        <h3>Подписанные группы</h3>
         <input type="text" placeholder="Найти группу" class="group-search">
         <ul class="group-list">
-            <li class="group-item">Группа 1: Основы программирования</li>
-            <li class="group-item">Группа 2: Алгоритмы и структуры данных</li>
-            <li class="group-item">Группа 3: Веб-разработка</li>
-        </ul>-->
-        <button onclick="location.href='{% url "users:user_update" %}'" class="create-group">Редактировать информацию</button>
-        <button onclick="location.href='{% url "users:user_logout" %}'" class="create-group">Выход</button>
+            <li class="group-item">№1 Данечка Сидорук: БФИ2202</li>
+            <li class="group-item">№2 Саня Лозицкий: БФИ2202 </li>
+            <li class="group-item">№3 Артём Иванов: БФИ2203</li>
+        </ul>
+        <button onclick="location.href='{% url "users:user_update" %}'" class="action-button">Редактировать информацию</button>
+        <button onclick="location.href='{% url "users:user_logout" %}'" class="action-button">Выход</button>
     </aside>
 
     <section class="profile">
         <h2>Информация о студенте</h2>
         <div class="profile-info">
-            <p><strong>ФИО:</strong> {{user.first_name}} {{user.last_name}}</p>
-            <p><strong>Группа:</strong>{{user.group}}</p>
-            <p><strong>Курс:</strong>{{user.year}}</p>
+            <p><strong>ФИО:</strong> Керимов Магомед Керимович</p>
+            <p><strong>Группа:</strong> БФИ2202</p>
+            <p><strong>Курс:</strong> 3 курс</p>
+            <p><strong>Номер студенческого</strong> 880072</p>
         </div>
 
         <div class="file-section">
@@ -56,22 +63,22 @@
             <button class="add-file">Добавить файл</button>
         </div>
 
-   <!--      <div class="history-section">
+        <div class="history-section">
             <h3>История изменений</h3>
             <div class="history-item">
                 <h4>Изменение 1</h4>
-                <p>Добавлено задание по математике.</p>
+                <p>Вы добавили файл для Web-программирование (Lectures) subject_files/Снимок_экрана_от_2024-11-16_21-54-52.png (Загружено: 20.12.2024 01:09)</p>
             </div>
             <div class="history-item">
                 <h4>Изменение 2</h4>
-                <p>Обновлён конспект лекции по физике.</p>
+                <p>Вы добавили файл для Web-программирование (Lectures) subject_files/Снимок_экрана_от_2024-11-16_21-54-52_K5D2us0.png (Загружено: 20.12.2024 01:48)</p>
             </div>
             <div class="history-item">
                 <h4>Изменение 3</h4>
-                <p>Загружен проект по информатике.</p>
+                <p>Вы добавили файл для Web-программирование (Lectures) subject_files/Снимок_экрана_от_2024-11-16_21-57-20.png (Загружено: 20.12.2024 01:49)</p>
             </div>
-        </div> -->
+        </div>
     </section>
 </div>
-{% endblock %}
 
+{% endblock %}
