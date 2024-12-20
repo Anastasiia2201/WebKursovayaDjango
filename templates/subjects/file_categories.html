@@ -1,19 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Категории файлов</title>
-</head>
-<body>
-    <h1>Категории файлов для {{ subject.name }}</h1>
-    <ul>
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Категории файлов для {{ subject.name }}
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/files.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="file-categories-section">
+    <h2 class="file-categories-title">Категории файлов для {{ subject.name }}</h2>
+    <ul class="category-list">
         {% for category in categories %}
         <li>
-            <a href="{% url 'subjects:file_list' subject.id category %}">{{ category|capfirst }}</a>
+            <a href="{% url 'subjects:file_list' subject.id category %}" class="category-link">{{ category|capfirst }}</a>
         </li>
         {% endfor %}
     </ul>
-    <a href="/subjects/">Перейти на страницу предметов</a>
-</body>
-</html>
+    <a href="/subjects/" class="btn-back">Перейти на страницу предметов</a>
+</section>
+{% endblock %}

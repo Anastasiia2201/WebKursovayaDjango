@@ -1,28 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Предметы преподавателя {{ teacher.first_name }} {{ teacher.last_name }}</title>
-</head>
-<body>
-    <h1>Предметы преподавателя {{ teacher.first_name }} {{ teacher.last_name }}</h1>
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Предметы преподавателя {{ teacher.first_name }} {{ teacher.last_name }}
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/subject_teach.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="subjects-section">
+    <h2 class="subjects-title">Предметы преподавателя {{ teacher.first_name }} {{ teacher.last_name }}</h2>
 
     {% if subjects %}
         <div class="subjects-list">
             {% for subject in subjects %}
                 <div class="subject-card">
-                    <h4>{{ subject.name }}</h4>
-                    <p>Тип сдачи: <span class="exam-type credit">{{ subject.type }}</span></p>
+                    <h4 class="subject-name">{{ subject.name }}</h4>
+                    <p>Тип сдачи: <span class="exam-type">{{ subject.type }}</span></p>
                     <p class="coursework">Курсовая работа: {% if subject.course_work %}Да{% else %}Нет{% endif %}</p>
                     <a href="{% url 'subjects:file_categories' subject.id %}" class="btn">Файлы</a>
                 </div>
             {% endfor %}
         </div>
     {% else %}
-        <p>У этого преподавателя нет предметов.</p>
+        <p class="no-subjects">У этого преподавателя нет предметов.</p>
     {% endif %}
-
-    <a href="/teachers/">Назад к списку преподавателей</a>
-</body>
-</html>
+    <a href="/teachers/" class="btn-back">Назад к списку преподавателей</a>
+</section>
+{% endblock %}
