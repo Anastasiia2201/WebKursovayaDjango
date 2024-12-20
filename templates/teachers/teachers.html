@@ -28,19 +28,20 @@
             <div class="subject-section">
                 <h3 class="subject-title"></h3>
                 <div class="teachers-group scrollable-group">
-                    {%for teacher in teachers%}
-                    <div class="teacher-card">
-                        <div class="teacher-photo-container">
-                            {% if teacher.image %}
-                            <img src="{{teacher.image.url}}" alt="{{teacher.last_name}}" class="teacher-photo" target="_blank">
-                            {% endif %}
+                    {% for teacher in teachers %}
+                        <div class="teacher-card">
+                            <div class="teacher-photo-container">
+                                {% if teacher.image %}
+                                    <img src="{{ teacher.image.url }}" alt="{{ teacher.last_name }}" class="teacher-photo" target="_blank">
+                                {% endif %}
+                            </div>
+                            <div class="teacher-info">
+                                <h3>{{ teacher.first_name }} {{ teacher.last_name }}</h3>
+                                <p>Стаж: {{ teacher.experience }} лет</p>
+                                <a href="{% url 'teachers:teacher_subjects' teacher.id %}" class="btn">Предметы преподавателя</a>
+                            </div>
                         </div>
-                        <div class="teacher-info">
-                            <h3>{{teacher.last_name}}</h3>
-                            <p>Стаж: {{teacher.experience}} лет</p>
-                        </div>
-                    </div>
-                    {%endfor%}
+                    {% endfor %}
 
                 </div>
             </div>

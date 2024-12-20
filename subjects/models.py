@@ -30,3 +30,19 @@ class Subject(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class File(models.Model):
+    CATEGORY_CHOICES = [
+        ('lectures', 'Лекции'),
+        ('practicals', 'Практические'),
+        ('labs', 'Лабораторные'),
+        ('coursework', 'Курсовые'),
+        ('exam', 'Экзамен/Зачет'),
+    ]
+
+    subject = models.ForeignKey(Subject, on_delete=models.CASCADE, related_name="files")
+    category = models.CharField(max_length=20, choices=CATEGORY_CHOICES)
+    file = models.FileField(upload_to='subject_files/')
+    uploaded_at = models.DateTimeField(auto_now_add=True)
+    

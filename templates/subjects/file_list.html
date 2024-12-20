@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Файлы для {{ subject.name }} - {{ category|capfirst }}</title>
+</head>
+<body>
+    <h1>Файлы для {{ subject.name }} ({{ category|capfirst }})</h1>
+
+    {% if files %}
+    <ul>
+        {% for file in files %}
+        <li>
+            <a href="{{ file.file.url }}" target="_blank">{{ file.file.name }}</a>
+            <span>(Загружено: {{ file.uploaded_at|date:"d.m.Y H:i" }})</span>
+        </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>Файлы отсутствуют.</p>
+    {% endif %}
+
+    <a href="{% url 'subjects:upload_file' subject.id category %}" class="btn">Добавить файл</a>
+    <br>
+    <a href="{% url 'subjects:file_categories' subject.id %}" class="btn">Назад к категориям</a>
+</body>
+</html>
